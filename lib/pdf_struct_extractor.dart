@@ -1,5 +1,3 @@
-library pdf_struct_extractor;
-
 import 'dart:typed_data';
 
 import 'src/pdf_struct_extractor_platform.dart';

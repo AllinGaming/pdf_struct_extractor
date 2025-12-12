@@ -32,7 +32,7 @@ class PdfStructExtractorImpl {
 Future<void> _ensurePdfrxInitialized({String? pdfiumPath}) async {
   final home = Platform.environment['HOME'];
   final cachedPdfium = pdfiumPath ??
-      (home != null
+      ((home ?? '').isNotEmpty
           ? '$home/.pdfrx/chromium_2F7520/mac-arm64/lib/libpdfium.dylib'
           : '');
   if (cachedPdfium.isNotEmpty && File(cachedPdfium).existsSync()) {
@@ -57,7 +57,6 @@ Future<Map<String, dynamic>> _extract(
 
   for (final page in toProcess) {
     final structured = await page.loadStructuredText(ensureLoaded: true);
-    if (structured == null) continue;
     pagesJson.add(
         buildPageJson(structured, page.width, page.height, page.pageNumber));
     pageSizes.add(

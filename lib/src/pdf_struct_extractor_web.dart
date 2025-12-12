@@ -47,7 +47,6 @@ Future<Map<String, dynamic>> _extract(
 
   for (final page in toProcess) {
     final structured = await page.loadStructuredText(ensureLoaded: true);
-    if (structured == null) continue;
     pagesJson.add(
         buildPageJson(structured, page.width, page.height, page.pageNumber));
     pageSizes.add(

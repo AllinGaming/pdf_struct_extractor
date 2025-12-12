@@ -1,6 +1,4 @@
-import 'dart:math';
-
-// This file holds shared structuring logic used by both native (pdfrx_engine) and web (pdfrx) builds.
+// Shared structuring logic used by both native (pdfrx_engine) and web (pdfrx) builds.
 
 import 'pdf_text_platform.dart';
 
@@ -244,8 +242,9 @@ bool _looksLikeHeading(String line, List<Line> para) {
   if (trimmed.isEmpty) return false;
   final words = trimmed.split(RegExp(r'\s+'));
   if (words.length <= 8 && trimmed == trimmed.toUpperCase()) return true;
-  if (RegExp(r'^[0-9]+(\.[0-9]+)*').hasMatch(trimmed) && words.length <= 12)
+  if (RegExp(r'^[0-9]+(\.[0-9]+)*').hasMatch(trimmed) && words.length <= 12) {
     return true;
+  }
   final avgHeight =
       para.map((l) => l.height).reduce((a, b) => a + b) / para.length;
   return para.first.height > avgHeight * 1.2;

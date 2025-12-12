@@ -1,6 +1,8 @@
 # pdf_struct_extractor
 [![pub package](https://img.shields.io/pub/v/pdf_struct_extractor?label=pub)](https://pub.dev/packages/pdf_struct_extractor)
 [![license](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![build](https://github.com/AllinGaming/pdf_struct_extractor/actions/workflows/ci.yml/badge.svg)](https://github.com/AllinGaming/pdf_struct_extractor/actions/workflows/ci.yml)
+[![style](https://img.shields.io/badge/style-flutter__lints-blue)](https://pub.dev/packages/flutter_lints)
 
 Extract structured text from PDFs (headings, paragraphs, list items, simple tables) into a JSON-friendly Map using `pdfrx_engine` (PDFium, pure Dart).
 
@@ -65,6 +67,7 @@ dart run example/main.dart test/data/sample.pdf > output.json
 - Web: uses `pdfrx` (WASM). Ensure pdfrx web assets are bundled per pdfrx docs when building Flutter web.
 - Output is plain Dart `Map`/`List` suitable for JSON encoding. Extend `_paragraphsToBlocks` if you need line/span coordinates.
 - Platforms: Flutter mobile/desktop/web (with WASM configured); Dart VM/CLI also works when Flutter SDK is available.
+- Flutter web note: pdfrx requires WASM assets (PDFium) to be bundled/configured per pdfrx documentation for web builds. This package does not bundle them for you.
 
 ## Publish checklist
 - Update `repository`, `homepage`, `issue_tracker` in `pubspec.yaml` with real URLs.
