@@ -30,7 +30,10 @@ flutter pub run pdf_struct_extractor <path-to.pdf> [--max-pages=N]
 
 Example:
 ```
-dart run example/main.dart test/data/sample.pdf > output.json
+# uses embedded sample if no path is provided
+dart run example/main.dart > output.json
+# or provide your own
+dart run example/main.dart path/to/your.pdf > output.json
 ```
 
 ## JSON shape
@@ -81,17 +84,17 @@ dart run example/main.dart test/data/sample.pdf > output.json
 ```
 dart test
 ```
-Uses `test/data/sample.pdf` and limits to the first page for speed.
+Uses an embedded sample PDF and limits to the first page for speed.
 
 ## Local example
-- Run the CLI: `flutter pub run pdf_struct_extractor test/data/sample.pdf > output.json`
-- Or run the example app: `dart run example/main.dart test/data/sample.pdf > example_output.json`
-- Limit pages: `MAX_PAGES=3 dart run example/main.dart test/data/sample.pdf`
+- Run the CLI: `flutter pub run pdf_struct_extractor path/to/your.pdf > output.json`
+- Or run the example app: `dart run example/main.dart > example_output.json` (uses embedded sample if no path given)
+- Limit pages: `MAX_PAGES=3 dart run example/main.dart path/to/your.pdf`
 
 Flutter example:
 - Located at `example/flutter_app`.
 - Run: `cd example/flutter_app && flutter pub get && flutter run`
-- It loads the bundled `assets/sample.pdf` and shows the structured JSON in a scrollable view (expandable pages/blocks).
+- It uses an embedded sample PDF and shows the structured JSON in a scrollable view (expandable pages/blocks).
 - For web, ensure pdfrx WASM assets are available and included (see web setup below).
 
 ## Using in Flutter (in-memory bytes)
