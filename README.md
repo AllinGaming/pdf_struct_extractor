@@ -25,7 +25,7 @@ Future<void> main() async {
 
 CLI:
 ```
-dart run pdf_struct_extractor <path-to.pdf> [--max-pages=N]
+flutter pub run pdf_struct_extractor <path-to.pdf> [--max-pages=N]
 ```
 
 Example:
@@ -84,14 +84,15 @@ dart test
 Uses `test/data/sample.pdf` and limits to the first page for speed.
 
 ## Local example
-- Run the CLI: `dart run pdf_struct_extractor test/data/sample.pdf > output.json`
+- Run the CLI: `flutter pub run pdf_struct_extractor test/data/sample.pdf > output.json`
 - Or run the example app: `dart run example/main.dart test/data/sample.pdf > example_output.json`
 - Limit pages: `MAX_PAGES=3 dart run example/main.dart test/data/sample.pdf`
 
 Flutter example:
 - Located at `example/flutter_app`.
 - Run: `cd example/flutter_app && flutter pub get && flutter run`
-- It loads the bundled `assets/sample.pdf` and shows the structured JSON in a scrollable view. (Not supported on web; run on mobile/desktop.)
+- It loads the bundled `assets/sample.pdf` and shows the structured JSON in a scrollable view (expandable pages/blocks).
+- For web, ensure pdfrx WASM assets are available and included (see web setup below).
 
 ## Using in Flutter (in-memory bytes)
 ```dart
@@ -107,3 +108,10 @@ Future<void> pickAndExtract() async {
   print(data['meta']);
 }
 ```
+- Flutter web setup:
+  - Ensure pdfrx WASM assets are available. In your web `index.html` include:
+    - `assets/packages/pdfrx/assets/pdfium_client.js`
+    - `assets/packages/pdfrx/assets/pdfium_worker.js`
+  - Call `pdfrxFlutterInitialize()` before using `PdfStructuredExtractor` on web; the default `pdfiumModuleBaseUrl` points to `assets/packages/pdfrx/assets`.
+  - For GitHub Pages or non-root hosting, adjust `base href` and asset paths accordingly.
+  - Example `index.html` already includes the scripts; copy that pattern for your app.
