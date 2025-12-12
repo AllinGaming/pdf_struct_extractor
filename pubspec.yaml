@@ -1,0 +1,27 @@
+name: pdf_struct_extractor
+description: Extract structured text/headings/tables from PDFs into JSON using pdfrx (Flutter web/native) and pdfrx_engine (native).
+version: 0.1.0
+repository: https://github.com/AllinGaming/pdf_struct_extractor
+issue_tracker: https://github.com/AllinGaming/pdf_struct_extractor/issues
+homepage: https://github.com/AllinGaming/pdf_struct_extractor
+topics:
+  - pdf
+  - text-extraction
+  - parsing
+environment:
+  sdk: ">=3.2.0 <4.0.0"
+  flutter: ">=3.16.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  pdfrx: ^2.2.17
+  pdfrx_engine: ^0.3.6
+
+dev_dependencies:
+  test: ^1.24.0
+  flutter_test:
+    sdk: flutter
+
+executables:
+  pdf_struct_extractor:

@@ -1,0 +1,19 @@
+name: pdf_struct_extractor_example
+description: Flutter example app for pdf_struct_extractor
+publish_to: 'none'
+version: 0.1.0
+environment:
+  sdk: ">=3.2.0 <4.0.0"
+  flutter: ">=3.16.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  pdf_struct_extractor:
+    path: ../..
+  flutter_json_view: ^1.1.5
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/sample.pdf
