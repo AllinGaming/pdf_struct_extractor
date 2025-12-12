@@ -4,7 +4,7 @@
 [![build](https://github.com/AllinGaming/pdf_struct_extractor/actions/workflows/ci.yml/badge.svg)](https://github.com/AllinGaming/pdf_struct_extractor/actions/workflows/ci.yml)
 [![style](https://img.shields.io/badge/style-flutter__lints-blue)](https://pub.dev/packages/flutter_lints)
 
-Extract structured text from PDFs (headings, paragraphs, list items, simple tables) into a JSON-friendly Map using `pdfrx_engine` (PDFium, pure Dart).
+Extract structured text from PDFs (headings, paragraphs, list items, simple tables) into a JSON-friendly Map using `pdfrx_engine`.
 
 ## Install
 ```yaml
@@ -116,5 +116,4 @@ Future<void> pickAndExtract() async {
     - `assets/packages/pdfrx/assets/pdfium_client.js`
     - `assets/packages/pdfrx/assets/pdfium_worker.js`
   - Call `pdfrxFlutterInitialize()` before using `PdfStructuredExtractor` on web; the default `pdfiumModuleBaseUrl` points to `assets/packages/pdfrx/assets`.
-  - For GitHub Pages or non-root hosting, adjust `base href` and asset paths accordingly.
   - Example `index.html` already includes the scripts; copy that pattern for your app.
